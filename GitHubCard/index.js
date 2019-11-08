@@ -171,3 +171,6 @@ axios
 // 	const newCard = meCard(i);
 // 	entryPoint.appendChild(newCard);
 // });
+
+let header = document.querySelector('.header p');
+header.textContent = 'Github Cards';
