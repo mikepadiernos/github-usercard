@@ -135,6 +135,21 @@ const followersArray = [
 	}
 ];
 
+
+axios
+	.get('https://api.github.com/users/mikepadiernos')
+	.then(response => {
+		const me = response.data;
+		console.log('response: me', me);
+		entryPoint.appendChild(meCard(me));
+	})
+	.catch(error => {
+		if (error.includes('Network Error')) {
+			console.log('Network Error');
+		}
+		console.log('No Data Returned');
+	});
+
 axios
 	.get('https://api.github.com/users/mikepadiernos/followers')
 	.then(response => {
@@ -152,21 +167,7 @@ axios
 			console.log('No Data Returned');
 	});
 
-followersArray.forEach(i => {
-	const newCard = meCard(i);
-	entryPoint.appendChild(newCard);
-});
-
-axios
-	.get('https://api.github.com/users/mikepadiernos')
-	.then(response => {
-		const me = response.data;
-		console.log('response: me', me);
-		entryPoint.appendChild(meCard(me));
-	})
-	.catch(error => {
-		if (error.includes('Network Error')) {
-			console.log('Network Error');
-		}
-		console.log('No Data Returned');
-	});
+// followersArray.forEach(i => {
+// 	const newCard = meCard(i);
+// 	entryPoint.appendChild(newCard);
+// });
